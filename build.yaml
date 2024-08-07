@@ -1,6 +1,3 @@
 ---
 include:
-  - board: zeuspad
   - board: pearl
-  - board: atlas
-  - board: zeus
