@@ -10,14 +10,24 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
+#define DEFAULT 0
+#define NUM_LAYER 1
+#define LAYER_3 2
+#define F_LAYER 3
 
 &soft_off {
     hold-time-ms = <5000>; // Only turn off it the key is held for 5 seconds or longer.
 	  };
+&mt {
+    tapping-term-ms = <200>;
+};
 
-       	{
-slt: spacebar_layer_tap { compatible = "zmk,behavior-hold-tap"; label = "SPACE_LAYER_TAP"; #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; quick-tap-ms = <125>; global-quick-tap; bindings = <&mo 1>, <&kp SPACE>; }; 
-		};
+/ {
+    keymap {
+        ...
+    };
+};
+
 
 / {
 	keymap {
@@ -27,7 +37,7 @@ slt: spacebar_layer_tap { compatible = "zmk,behavior-hold-tap"; label = "SPACE_L
 		       &lt 1 ESC        &kp Q             &kp W            &kp E            &kp R             &kp T          &kp Y      &kp U     &kp I        &kp O       &kp P       &kp DEL        &kp BSPC
       		       &kp TAB          &kp A             &kp S            &kp D            &kp F             &kp G          &kp H      &kp J     &kp K        &kp L       &kp BSLH    &kp ENTER
       		       &kp LSHFT        &kp Z             &kp X            &kp C            &kp V             &kp B          &kp N      &kp M     &kp COMMA    &kp DOT     &kp FSLH    &kp RSHIFT
-      		        	        &kp LCTRL         &mo 2            &kp LALT     &mt spacebar_layer_tap    &kp SPACE         &kp RALT   &kp RCTRL
+      		        	        &kp LCTRL         &mo 2            &kp LALT     &mt NUM_LAYER SPACE   &kp SPACE         &kp RALT   &kp RCTRL
 			>;
 		};
 
@@ -36,7 +46,7 @@ slt: spacebar_layer_tap { compatible = "zmk,behavior-hold-tap"; label = "SPACE_L
 			&kp GRAVE        &kp Q             &kp W            &kp E            &kp R             &kp T          &kp N7     &kp N8     &kp N9      &kp PLUS   &kp MINUS    &kp DEL        &kp BSPC
 			&kp TAB          &kp A             &kp S            &kp D            &kp F             &kp G          &kp N4     &kp N5     &kp N6      &kp ASTRK  &kp EQUAL    &kp ENTER
 			&kp LSHFT        &kp Z             &kp X            &kp C            &kp V             &kp B          &kp N1     &kp N2     &kp N3      &kp DOT    &kp FSLH     &kp RSHIFT
-				         &kp LCTRL         &mo 2            &mo 3        &mt spacebar_layer_tap   &kp N0         &kp RALT   &kp RCTRL      
+				         &kp LCTRL         &mo 2            &mo 3        &mt NUM_LAYER SPACE   &kp N0         &kp RALT   &kp RCTRL      
 			>;
 		};
 
